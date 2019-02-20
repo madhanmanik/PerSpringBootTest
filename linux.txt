@@ -1,0 +1,113 @@
+#jdk 8
+sudo wget --continue --no-check-certificate -O jdk-8u191-linux-x64.tar.gz --header "Cookie: oraclelicense=a" http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.tar.gz
+
+
+# download wildfly
+sudo wget http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.tar.gz
+sudo wget http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz
+
+# create server dir
+WILDFLY_HOME=/opt/wildfly
+sudo mkdir $WILDFLY_HOME
+
+sudo tar -xzf wildfly-15.0.1.Final.tar.gz -C /opt/wildfly --strip 1
+sudo tat -xzf apache-tomcat-8.5.37.tar.gz -C /opt/tomcat
+
+
+sudo mkdir /opt/java
+sudo tar -xzf jdk-8u191-linux-x64.tar.gz -C /opt/java
+
+tar xzf apache-tomcat-8.5.24.tar.gz
+
+./startup.sh
+ps -ef | grep tomcat
+ wget http://localhost:8080
+ # permissions
+chown -R ubuntu:ubuntu /opt/tomcat/
+
+
+sudo tar zxvf jdk-8u191-linux-x64.tar.gz
+
+
+
+root@ip-172-31-30-182:/opt# chown -R ubuntu /opt/
+root@ip-172-31-30-182:/opt# su ubuntu
+
+
+sh standalone.sh
+
+
+https://linuxtechlab.com/wildfly-10-10-1-0-installation/
+
+
+https://gist.github.com/chinboon/df3c9dfb4703d442a881e13515c2a8b0
+
+
+
+
+Skip to content
+
+Search…
+All gists
+GitHub
+ 
+Instantly share code, notes, and snippets.
+
+4 0 @chinboonchinboon/wildfly10-install.sh
+Last active 8 months ago
+ 
+<script src="https://gist.github.com/chinboon/df3c9dfb4703d442a881e13515c2a8b0.js"></script>
+  
+ Code  Revisions 8  Stars 4
+Script to install Wildfly 10 and JDK 8 into Amazon Linux AMI
+ wildfly10-install.sh
+#!/bin/sh
+
+# remove previous versions of java
+sudo yum remove -y java-1.7.0-openjdk
+wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.rpm"
+sudo yum localinstall -y jdk-8u92-linux-x64.rpm
+java -version
+
+# download wildfly
+sudo wget http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.tar.gz
+
+# create server dir
+WILDFLY_HOME=/opt/wildfly
+sudo mkdir $WILDFLY_HOME
+
+# unzip
+tar -xzf wildfly-10.0.0.Final.tar.gz -C /opt/wildfly --strip 1
+cd  /opt/wildfly
+
+# install wildfly as service
+sudo groupadd wildfly
+sudo useradd -M -s /bin/nologin -g wildfly -d $WILDFLY_HOME wildfly
+sudo chown -R wildfly:wildfly $WILDFLY_HOME
+
+# delete files
+sudo rm jdk-8u92-linux-x64.rpm
+sudo rm wildfly-10.0.0.Final.tar.gz
+
+# forget me
+sudo history -c
+
+# start wildfly bind to all address
+sudo -u wildfly /opt/wildfly/bin/standalone.sh -b=0.0.0.0 &
+# or if you want to also bind the management port to all address
+sudo -u wildfly /opt/wildfly/bin/standalone.sh -b=0.0.0.0 -bmanagement=0.0.0.0 &
+
+ to join this conversation on GitHub. Already have an account? Sign in to comment
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details.

@@ -1,0 +1,80 @@
+https://stackoverflow.com/questions/49192295/how-to-change-embedded-tomcats-version-in-existing-spring-boot-app
+https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-system-requirements.html
+https://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/html/getting-started-system-requirements.html
+https://www.concretepage.com/spring-boot/spring-boot-hikaricp
+https://stackoverflow.com/questions/49352800/hikaripool-1-jdbcurl-is-required-with-driverclassname
+https://howtodoinjava.com/spring-cloud/spring-cloud-service-discovery-netflix-eureka/
+https://www.infoq.com/articles/Multiple-Databases-with-Spring-Boot
+https://stackoverflow.com/questions/40623073/field-session-in-xxxdaoimpl-required-a-bean-of-type-org-hibernate-sessionfacto/40640770
+https://thysmichels.com/2014/01/25/spring-jpa-no-qualifying-bean-of-type-javax-persistence-entitymanagerfactory/
+https://stackoverflow.com/questions/16204565/jpa-entity-specify-persistence-unit
+https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
+http://websystique.com/spring/spring-propertysource-value-annotations-example/
+
+https://docs.jboss.org/author/display/WFLY8/DataSource+configuration
+
+https://www.codejava.net/frameworks/spring/configuring-spring-mvc-jdbctemplate-with-jndi-data-source-in-tomcat
+https://developer.jboss.org/wiki/DataSourceConfigurationInAS7#Installing_a_JDBC_driver_as_a_module
+
+https://stackoverflow.com/questions/50145002/how-to-configure-a-jndi-datasource-with-spring-boot-wildfly-11-0
+http://www.mastertheboss.com/jboss-frameworks/spring/spring-jdbc-application-on-wildfly
+
+https://springframework.guru/using-yaml-in-spring-boot-to-configure-logback/
+https://rdtschools.com/spring-boot-jndi-configurations-embedded-tomcat-multiple-datasources/
+
+
+https://stackoverflow.com/questions/29771904/hot-deployment-location-in-wildfly-8-as
+
+https://stackoverflow.com/questions/32776410/configure-mutiple-datasource-in-spring-boot-with-jndi
+
+http://www.mastertheboss.com/jboss-frameworks/spring/springboot-with-jpa-on-wildfly
+
+https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples
+
+https://stackoverflow.com/questions/23079492/slf4j-logback-does-not-log-in-wildfly-11-0
+
+https://stackoverflow.com/questions/21846329/override-logging-in-wildfly?rq=1
+
+https://stackoverflow.com/questions/31876979/how-to-prevent-application-logs-getting-logged-in-server-log-in-wildfly-8-2-0-fi
+https://gist.github.com/vdevigere/44073b102f0bc93e0759
+
+reactjs
+https://github.com/facebook/create-react-app
+https://www.netlify.com/blog/2016/07/22/deploy-react-apps-in-less-than-30-seconds/
+https://coderjourney.com/tutorials/how-to-deploy-a-react-application/
+
+
+configuration location
+https://docs.jboss.org/author/display/WFLY10/General+configuration+concepts
+
+
+loggers
+https://dzone.com/articles/log4j-2-configuration
+https://stackoverflow.com/questions/30062099/log4j2-how-to-configure-multiple-appender-with-same-type-in-yaml-configuration
+https://stackoverflow.com/questions/39404461/log4j2-file-created-but-not-log-written
+
+https://stackoverflow.com/questions/38527175/spring-boot-no-log-file-written-logging-file-is-not-respected
+
+
+custom exception
+
+https://stackoverflow.com/questions/23621037/return-http-error-401-code-skip-filter-chains
+
+
+
+eureka load balancing
+https://o7planning.org/en/11739/undertanding-load-balancing-in-spring-cloud-with-ribbon-and-example
+
+DOCKER STEPS
+1)docker -v  17
+2)docker build -f Dockerfile -t spring-boot-final .
+3)docker images
+4)docker run -p 8080:8080 spring-boot-final
+
+
+spring boot port change
+java -jar PAAS.jar  --server.port=8585
+
+task kill
+netstat -ano | findstr :yourPortNumber
+taskkill /PID typeyourPIDhere /F
